@@ -17,6 +17,7 @@
       --sage: #81b29a; /* Card borders and section separators. */
       --sand: #f2cc8f; /* Hero background and badges. */
       --surface: #fff; /* Neutral card surface. */
+      --line: rgba(61, 64, 91, 0.2); /* Quiet borders for supporting content. */
     }
 
     * { box-sizing: border-box; }
@@ -33,7 +34,7 @@
     }
     h1, h2, h3, p, ul, figure { margin: 0; }
     h1, h2, h3 { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-weight: 400; text-wrap: balance; }
-    h2 { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.25; letter-spacing: -0.015em; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.15rem); line-height: 1.25; letter-spacing: -0.015em; }
     h3 { font-size: 1.3rem; line-height: 1.35; }
     p { max-width: 60ch; }
     ul { padding-left: 1.25rem; }
@@ -46,29 +47,31 @@
     .section-heading { margin-bottom: 1.5rem; }
     .section-heading p { margin-top: 0.6rem; color: var(--ink); }
     .page-section { margin-top: clamp(3rem, 7vw, 5rem); }
-    .card { min-width: 0; padding: 1.5rem; border: 1px solid var(--sage); border-radius: 1rem; background: var(--surface); }
-    .section-intro { margin-bottom: 1.5rem; }
+    .card { min-width: 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+    .menu-section > .section-heading h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+    .section-intro { max-width: none; margin-bottom: 1.75rem; padding: 1rem 1.25rem; background: transparent; font-size: 1rem; }
 
     .skip-link { position: absolute; top: 0.5rem; left: 1rem; padding: 0.6rem 1rem; background: var(--surface); transform: translateY(-180%); }
     .skip-link:focus { transform: translateY(0); z-index: 1; }
-    .site-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; padding: 1.5rem 0; border-bottom: 2px solid var(--sage); margin-bottom: 1.5rem; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); margin-bottom: 2rem; }
     .site-name { font-size: 1.2rem; font-weight: bold; color: var(--ink); text-decoration: none; letter-spacing: -0.015em; }
     .site-header nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 0; list-style: none; }
-    .site-header nav { padding: 0.25rem 1rem; }
+    .site-header nav { padding: 0.25rem 1rem; background: transparent; }
     .site-header nav li { margin: 0; }
     .site-header nav a { display: inline-block; padding: 0.6rem 0; font-size: 0.95rem; text-decoration: none; }
     .site-header nav a:hover { text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 3px; }
+    .site-header nav a[href="#menu"] { font-weight: 700; }
 
-    .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 1.5rem; animation: hero-enter 280ms ease-out; }
+    .hero { display: grid; grid-template-columns: 1.35fr 0.85fr; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); animation: hero-enter 280ms ease-out; }
     .hero-copy { min-width: 0; }
-    .hero .eyebrow { color: var(--ink); margin-bottom: 1.5rem; }
-    .hero h1 { max-width: 12ch; font-size: clamp(2.75rem, 5.8vw, 4.5rem); line-height: 1.12; letter-spacing: -0.025em; }
-    .hero-details { margin-top: 1.5rem; background: var(--sand); }
-    .hero-details p { max-width: 30ch; }
-    .hero-button { display: inline-block; margin-top: 1.75rem; padding: 0.85rem 1.5rem; border-radius: 0.5rem; background: var(--ink); color: var(--cream); font-size: 0.95rem; font-weight: bold; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
+    .hero .eyebrow { color: var(--ink); margin-bottom: 1rem; }
+    .hero h1 { max-width: 14ch; font-size: clamp(3rem, 6.6vw, 5.25rem); line-height: 1.04; letter-spacing: -0.025em; text-wrap: pretty; }
+    .hero-details { margin-top: 1.75rem; border-color: var(--sand); background: var(--sand); }
+    .hero-details p { max-width: 36ch; }
+    .hero-button { display: inline-block; margin-top: 1.25rem; padding: 1rem 1.75rem; border-radius: 0.5rem; background: var(--ink); color: var(--cream); font-size: 1.05rem; font-weight: bold; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
     .hero-button:focus-visible { box-shadow: 0 0 0 3px var(--coral); }
     .hero-photo { padding: 0; overflow: hidden; }
-    .hero-image { height: 36rem; object-fit: cover; }
+    .hero-image { height: 30rem; object-fit: cover; }
 
     .about h2 { margin-bottom: 1.25rem; }
     .about-content { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
@@ -80,11 +83,11 @@
     .drink-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
     .drink-item { display: flex; flex-direction: column; min-width: 0; }
     .drink-item h3 { margin-bottom: 0.75rem; font-size: 1.5rem; }
-    .drink-card { display: flex; flex: 1; flex-direction: column; overflow: hidden; padding: 0; }
+    .drink-card { display: flex; flex: 1; flex-direction: column; overflow: hidden; padding: 0; border-color: var(--sage); }
     .drink-card img { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 60%; }
     .drink-card figcaption { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.5rem; }
     .drink-card figcaption > p:not(.price) { margin: 0 0 1rem; color: var(--ink); font-size: 1rem; }
-    .drink-card .price { margin-top: auto; padding: 0.25rem 0.65rem; border-radius: 0.35rem; color: var(--ink); background: var(--sand); font-weight: bold; }
+    .drink-card .price { margin-top: auto; padding: 0.25rem 0.65rem; border-radius: 0.35rem; color: var(--ink); background: var(--sand); font-size: 1.1rem; font-weight: bold; }
 
     .menu-details { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; margin-top: 2.5rem; }
     .menu-details h3 { margin-bottom: 1rem; }
@@ -105,7 +108,7 @@
     .location-list li { padding: 0.35rem 0; }
     .location-list li::marker { color: var(--ink); }
     .deal-section h2, .contact h2 { margin-bottom: 1.25rem; }
-    .deal-panel { max-width: none; border-left: 0.35rem solid var(--coral); color: var(--cream); background: var(--ink); }
+    .deal-panel { max-width: none; border-left: 0.35rem solid var(--coral); color: var(--ink); background: var(--surface); }
     .contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
     .contact-links a { overflow-wrap: anywhere; }
 
@@ -114,6 +117,7 @@
     .site-footer strong { color: var(--ink); font-size: 1rem; }
     .site-footer a { overflow-wrap: anywhere; }
     .site-footer .copyright { grid-column: 1 / -1; }
+    .site-footer .card { padding: 1rem 1.25rem; }
 
     @keyframes hero-enter {
       from { opacity: 0; transform: translateY(8px); }
@@ -139,7 +143,8 @@
     }
 
     @media (max-width: 50rem) {
-      .hero { grid-template-columns: 1fr 1fr; }
+      .hero { grid-template-columns: 1.2fr 0.8fr; }
+      .hero h1 { font-size: clamp(2.75rem, 6.6vw, 3.5rem); }
       .hero-image { height: 28rem; }
       .menu-details, .visit-row { grid-template-columns: 1fr; gap: 2rem; }
       .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -150,8 +155,8 @@
       .site-header nav { flex-basis: 100%; }
       .site-header nav ul { justify-content: space-between; gap: 0.25rem 0.75rem; }
       .hero, .drink-photos, .options-row, .contact-links, .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { max-width: 13ch; }
-      .hero-image { min-height: 0; height: 21rem; object-position: center 56%; }
+      .hero h1 { max-width: 14ch; font-size: clamp(2.75rem, 10vw, 3.5rem); }
+      .hero-image { min-height: 0; height: 18rem; object-position: center 56%; }
       .about-content { align-items: stretch; flex-direction: column; gap: 1.5rem; }
       .about-image { width: 100%; max-height: 15rem; }
       .hours-list li { flex-wrap: wrap; gap: 0.15rem 1rem; }
@@ -187,18 +192,7 @@
       </div>
     </section>
 
-    <section class="about page-section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <div class="card about-content">
-        <div class="about-copy">
-          <p>Small boba shop on Pearl Street and 4th. Fresh tea. Soft pearls. Fast orders.</p>
-          <p class="owner">Owner: Kai</p>
-        </div>
-        <img class="about-image" src="pearl-street-boba-images/layered.jpg" alt="An iced drink with green matcha, milk, and red fruit layers" width="900" height="1350" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="page-section" aria-labelledby="menu">
+    <section class="menu-section page-section" aria-labelledby="menu">
       <div class="section-heading">
         <h2 id="menu">Menu</h2>
       </div>
@@ -283,6 +277,17 @@
           <h3 id="ice-heading">Ice</h3>
           <ul class="card"><li>Extra ice</li><li>Regular ice</li><li>Less ice</li></ul>
         </section>
+      </div>
+    </section>
+
+    <section class="about page-section" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <div class="card about-content">
+        <div class="about-copy">
+          <p>Small boba shop on Pearl Street and 4th. Fresh tea. Soft pearls. Fast orders.</p>
+          <p class="owner">Owner: Kai</p>
+        </div>
+        <img class="about-image" src="pearl-street-boba-images/layered.jpg" alt="An iced drink with green matcha, milk, and red fruit layers" width="900" height="1350" loading="lazy" />
       </div>
     </section>
 
