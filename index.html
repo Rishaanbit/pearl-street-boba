@@ -59,14 +59,14 @@
     .site-header nav a { display: inline-block; padding: 0.6rem 0; font-size: 0.95rem; text-decoration: none; }
     .site-header nav a:hover { text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 3px; }
 
-    .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 1.5rem; }
+    .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 1.5rem; animation: hero-enter 280ms ease-out; }
     .hero-copy { min-width: 0; }
     .hero .eyebrow { color: var(--ink); margin-bottom: 1.5rem; }
     .hero h1 { max-width: 12ch; font-size: clamp(2.75rem, 5.8vw, 4.5rem); line-height: 1.12; letter-spacing: -0.025em; }
     .hero-details { margin-top: 1.5rem; background: var(--sand); }
     .hero-details p { max-width: 30ch; }
-    .hero-button { display: inline-block; margin-top: 1.75rem; padding: 0.85rem 1.5rem; border-radius: 0.5rem; background: var(--ink); color: var(--cream); font-size: 0.95rem; font-weight: bold; text-decoration: none; }
-    .hero-button:hover { box-shadow: 0 0 0 3px var(--coral); }
+    .hero-button { display: inline-block; margin-top: 1.75rem; padding: 0.85rem 1.5rem; border-radius: 0.5rem; background: var(--ink); color: var(--cream); font-size: 0.95rem; font-weight: bold; text-decoration: none; transition: transform 150ms ease, box-shadow 150ms ease; }
+    .hero-button:focus-visible { box-shadow: 0 0 0 3px var(--coral); }
     .hero-photo { padding: 0; overflow: hidden; }
     .hero-image { height: 36rem; object-fit: cover; }
 
@@ -114,6 +114,29 @@
     .site-footer strong { color: var(--ink); font-size: 1rem; }
     .site-footer a { overflow-wrap: anywhere; }
     .site-footer .copyright { grid-column: 1 / -1; }
+
+    @keyframes hero-enter {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .drink-card, .menu-list.card, .options-row .card {
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .hero-button:hover { transform: translateY(-1px); box-shadow: 0 0 0 3px var(--coral); }
+      .drink-card:hover, .menu-list.card:hover, .options-row .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(61, 64, 91, 0.12);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero { animation: none; }
+      .hero-button, .drink-card, .menu-list.card, .options-row .card { transition: none; }
+      .hero-button:hover, .drink-card:hover, .menu-list.card:hover, .options-row .card:hover { transform: none; }
+    }
 
     @media (max-width: 50rem) {
       .hero { grid-template-columns: 1fr 1fr; }
