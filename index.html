@@ -46,85 +46,91 @@
     .section-heading { margin-bottom: 1.5rem; }
     .section-heading p { margin-top: 0.6rem; color: var(--ink); }
     .page-section { margin-top: clamp(3rem, 7vw, 5rem); }
+    .card { min-width: 0; padding: 1.5rem; border: 1px solid var(--sage); border-radius: 1rem; background: var(--surface); }
+    .section-intro { margin-bottom: 1.5rem; }
 
     .skip-link { position: absolute; top: 0.5rem; left: 1rem; padding: 0.6rem 1rem; background: var(--surface); transform: translateY(-180%); }
     .skip-link:focus { transform: translateY(0); z-index: 1; }
     .site-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; padding: 1.5rem 0; border-bottom: 2px solid var(--sage); margin-bottom: 1.5rem; }
     .site-name { font-size: 1.2rem; font-weight: bold; color: var(--ink); text-decoration: none; letter-spacing: -0.015em; }
     .site-header nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; padding: 0; list-style: none; }
+    .site-header nav { padding: 0.25rem 1rem; }
     .site-header nav li { margin: 0; }
     .site-header nav a { display: inline-block; padding: 0.6rem 0; font-size: 0.95rem; text-decoration: none; }
     .site-header nav a:hover { text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 3px; }
 
-    .hero { display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; border-radius: 1.5rem; background: var(--sand); }
-    .hero-copy { align-self: center; padding: clamp(1.5rem, 5vw, 3.5rem); }
+    .hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 1.5rem; }
+    .hero-copy { min-width: 0; }
     .hero .eyebrow { color: var(--ink); margin-bottom: 1.5rem; }
     .hero h1 { max-width: 12ch; font-size: clamp(2.75rem, 5.8vw, 4.5rem); line-height: 1.12; letter-spacing: -0.025em; }
-    .hero-copy > p:not(.eyebrow) { max-width: 30ch; margin-top: 1.4rem; color: var(--ink); }
+    .hero-details { margin-top: 1.5rem; background: var(--sand); }
+    .hero-details p { max-width: 30ch; }
     .hero-button { display: inline-block; margin-top: 1.75rem; padding: 0.85rem 1.5rem; border-radius: 0.5rem; background: var(--ink); color: var(--cream); font-size: 0.95rem; font-weight: bold; text-decoration: none; }
     .hero-button:hover { box-shadow: 0 0 0 3px var(--coral); }
-    .hero-image { height: 100%; min-height: 32rem; object-fit: cover; }
+    .hero-photo { padding: 0; overflow: hidden; }
+    .hero-image { height: 36rem; object-fit: cover; }
 
-    .about { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-bottom: 3rem; border-bottom: 1px solid var(--sage); }
+    .about h2 { margin-bottom: 1.25rem; }
+    .about-content { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .about-copy { max-width: 36rem; }
-    .about-copy > p { margin-top: 1rem; }
+    .about-copy > p + p { margin-top: 1rem; }
     .about-copy .owner { font-size: 0.9rem; color: var(--ink); }
     .about-image { width: 15rem; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 65%; border-radius: 1rem; }
 
     .drink-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
-    .drink-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--sage); border-radius: 1rem; background: var(--surface); }
+    .drink-item { display: flex; flex-direction: column; min-width: 0; }
+    .drink-item h3 { margin-bottom: 0.75rem; font-size: 1.5rem; }
+    .drink-card { display: flex; flex: 1; flex-direction: column; overflow: hidden; padding: 0; }
     .drink-card img { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 60%; }
     .drink-card figcaption { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.5rem; }
-    .drink-card h3 { font-size: 1.5rem; }
-    .drink-card figcaption > p:not(.price) { margin: 0.6rem 0 1rem; color: var(--ink); font-size: 1rem; }
+    .drink-card figcaption > p:not(.price) { margin: 0 0 1rem; color: var(--ink); font-size: 1rem; }
     .drink-card .price { margin-top: auto; padding: 0.25rem 0.65rem; border-radius: 0.35rem; color: var(--ink); background: var(--sand); font-weight: bold; }
 
     .menu-details { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; margin-top: 2.5rem; }
     .menu-details h3 { margin-bottom: 1rem; }
-    .menu-list, .hours-list { padding: 0; list-style: none; }
+    .menu-list, .hours-list { list-style: none; }
     .menu-list li, .hours-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0; padding: 0.7rem 0; border-bottom: 1px solid var(--sage); font-size: 0.95rem; }
+    .menu-list li:last-child, .hours-list li:last-child { border-bottom: 0; }
     .menu-price, .hours-list span:last-child { flex-shrink: 0; font-variant-numeric: tabular-nums; }
     .menu-price { font-weight: bold; color: var(--ink); }
     .options-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .options-row section { padding: 1.5rem; border: 1px solid var(--sage); border-radius: 1rem; background: var(--surface); }
-    .options-row h3 { color: var(--ink); }
-    .options-row ul { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin-top: 1rem; list-style: none; }
+    .options-row section { min-width: 0; }
+    .options-row h3 { margin-bottom: 1rem; color: var(--ink); }
+    .options-row ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; }
     .options-row li { margin: 0; padding: 0.3rem 0.75rem; border-radius: 0.35rem; color: var(--ink); background: var(--sand); font-size: 0.9rem; }
 
     .visit-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
     .visit-row h2 { margin-bottom: 1.25rem; }
-    .location-list { padding-left: 1.15rem; }
+    .location-list { padding-left: 2.5rem; }
     .location-list li { padding: 0.35rem 0; }
     .location-list li::marker { color: var(--ink); }
-    .deal-panel { display: flex; align-items: center; gap: 2rem; padding: 2rem; border-left: 0.35rem solid var(--coral); border-radius: 1rem; color: var(--cream); background: var(--ink); }
-    .deal-panel h2 { font-size: 2rem; }
-    .deal-panel p { max-width: 42ch; color: var(--cream); }
-    .contact { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-    .contact-links { min-width: 0; }
-    .contact-links p + p { margin-top: 0.5rem; }
+    .deal-section h2, .contact h2 { margin-bottom: 1.25rem; }
+    .deal-panel { max-width: none; border-left: 0.35rem solid var(--coral); color: var(--cream); background: var(--ink); }
+    .contact-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
     .contact-links a { overflow-wrap: anywhere; }
 
-    .site-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem 3rem; margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--sage); color: var(--ink); font-size: 0.9rem; }
+    .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--sage); color: var(--ink); font-size: 0.9rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; }
     .site-footer strong { color: var(--ink); font-size: 1rem; }
     .site-footer a { overflow-wrap: anywhere; }
-    .site-footer .copyright { flex-basis: 100%; }
+    .site-footer .copyright { grid-column: 1 / -1; }
 
     @media (max-width: 50rem) {
       .hero { grid-template-columns: 1fr 1fr; }
-      .hero-image { min-height: 28rem; }
+      .hero-image { height: 28rem; }
       .menu-details, .visit-row { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-image { width: 11rem; }
     }
     @media (max-width: 36rem) {
       .site-header { align-items: flex-start; gap: 0.25rem; }
       .site-header nav { flex-basis: 100%; }
       .site-header nav ul { justify-content: space-between; gap: 0.25rem 0.75rem; }
-      .hero, .drink-photos, .options-row { grid-template-columns: 1fr; }
+      .hero, .drink-photos, .options-row, .contact-links, .footer-grid { grid-template-columns: 1fr; }
       .hero h1 { max-width: 13ch; }
       .hero-image { min-height: 0; height: 21rem; object-position: center 56%; }
-      .about { align-items: flex-start; flex-direction: column; gap: 1.5rem; }
+      .about-content { align-items: stretch; flex-direction: column; gap: 1.5rem; }
       .about-image { width: 100%; max-height: 15rem; }
-      .deal-panel { align-items: flex-start; flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
       .hours-list li { flex-wrap: wrap; gap: 0.15rem 1rem; }
     }
   </style>
@@ -133,7 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <a class="site-name" href="#top">Pearl Street Boba</a>
-    <nav aria-label="Main navigation">
+    <nav class="card" aria-label="Main navigation">
       <ul>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#hours-heading">Hours</a></li>
@@ -148,65 +154,79 @@
       <div class="hero-copy">
         <p class="eyebrow">Pearl Street Boba</p>
         <h1 id="hero-heading">Fresh boba tea near campus.</h1>
-        <p>Fresh tea, soft pearls, and a little break in your day.</p>
-        <a class="hero-button" href="#menu">Explore the menu</a>
+        <div class="card hero-details">
+          <p>Fresh tea, soft pearls, and a little break in your day.</p>
+          <a class="hero-button" href="#menu">Explore the menu</a>
+        </div>
       </div>
-      <img class="hero-image" src="pearl-street-boba-images/hero.jpg" alt="A hand holding boba milk tea in front of pink blossoms" width="900" height="1350" fetchpriority="high" />
+      <div class="card hero-photo">
+        <img class="hero-image" src="pearl-street-boba-images/hero.jpg" alt="A hand holding boba milk tea in front of pink blossoms" width="900" height="1350" fetchpriority="high" />
+      </div>
     </section>
 
     <section class="about page-section" aria-labelledby="about-heading">
-      <div class="about-copy">
-        <h2 id="about-heading">About</h2>
-        <p>Small boba shop on Pearl Street and 4th. Fresh tea. Soft pearls. Fast orders.</p>
-        <p class="owner">Owner: Kai</p>
+      <h2 id="about-heading">About</h2>
+      <div class="card about-content">
+        <div class="about-copy">
+          <p>Small boba shop on Pearl Street and 4th. Fresh tea. Soft pearls. Fast orders.</p>
+          <p class="owner">Owner: Kai</p>
+        </div>
+        <img class="about-image" src="pearl-street-boba-images/layered.jpg" alt="An iced drink with green matcha, milk, and red fruit layers" width="900" height="1350" loading="lazy" />
       </div>
-      <img class="about-image" src="pearl-street-boba-images/layered.jpg" alt="An iced drink with green matcha, milk, and red fruit layers" width="900" height="1350" loading="lazy" />
     </section>
 
     <section class="page-section" aria-labelledby="menu">
       <div class="section-heading">
         <h2 id="menu">Menu</h2>
-        <p>Pick a favorite, then make it your own.</p>
       </div>
+      <p class="card section-intro">Pick a favorite, then make it your own.</p>
       <div class="drink-photos" role="group" aria-label="Featured drinks">
-        <figure class="drink-card">
+        <section class="drink-item" aria-labelledby="classic-heading">
+          <h3 id="classic-heading">Classic Milk Tea with Boba</h3>
+          <figure class="card drink-card" aria-labelledby="classic-heading">
           <img src="pearl-street-boba-images/milk-tea.jpg" alt="Iced milk tea with boba pearls in a glass mug" width="960" height="1280" loading="lazy" />
           <figcaption>
-            <h3>Classic Milk Tea with Boba</h3>
             <p>Smooth milk tea paired with soft, chewy boba pearls.</p>
             <p class="price">$5.50</p>
           </figcaption>
-        </figure>
-        <figure class="drink-card">
+          </figure>
+        </section>
+        <section class="drink-item" aria-labelledby="brown-sugar-heading">
+          <h3 id="brown-sugar-heading">Brown Sugar Milk Tea</h3>
+          <figure class="card drink-card" aria-labelledby="brown-sugar-heading">
           <img src="pearl-street-boba-images/brown-sugar-cup.jpg" alt="Milk tea with brown sugar streaks and boba pearls" width="900" height="1350" loading="lazy" />
           <figcaption>
-            <h3>Brown Sugar Milk Tea</h3>
             <p>Rich brown sugar swirls in smooth milk tea.</p>
             <p class="price">$6.00</p>
           </figcaption>
-        </figure>
-        <figure class="drink-card">
+          </figure>
+        </section>
+        <section class="drink-item" aria-labelledby="taro-heading">
+          <h3 id="taro-heading">Taro Milk Tea</h3>
+          <figure class="card drink-card" aria-labelledby="taro-heading">
           <img src="pearl-street-boba-images/taro.jpg" alt="A hand holding a cup of purple taro milk tea outdoors" width="900" height="1350" loading="lazy" />
           <figcaption>
-            <h3>Taro Milk Tea</h3>
             <p>A smooth, mellow milk tea with taro flavor.</p>
             <p class="price">$6.00</p>
           </figcaption>
-        </figure>
-        <figure class="drink-card">
+          </figure>
+        </section>
+        <section class="drink-item" aria-labelledby="strawberry-heading">
+          <h3 id="strawberry-heading">Strawberry Fruit Tea</h3>
+          <figure class="card drink-card" aria-labelledby="strawberry-heading">
           <img src="pearl-street-boba-images/strawberry.jpg" alt="Two pink iced strawberry drinks garnished with lemon slices" width="900" height="600" loading="lazy" />
           <figcaption>
-            <h3>Strawberry Fruit Tea</h3>
             <p>A fruity tea for a bright, refreshing break.</p>
             <p class="price">$5.50</p>
           </figcaption>
-        </figure>
+          </figure>
+        </section>
       </div>
 
       <div class="menu-details">
         <section aria-labelledby="drinks-heading">
           <h3 id="drinks-heading">Drinks:</h3>
-          <ul class="menu-list">
+          <ul class="card menu-list">
             <li><span>Classic Milk Tea with Boba</span><span class="menu-price">$5.50</span></li>
             <li><span>Brown Sugar Milk Tea</span><span class="menu-price">$6.00</span></li>
             <li><span>Taro Milk Tea</span><span class="menu-price">$6.00</span></li>
@@ -221,7 +241,7 @@
         </section>
         <section aria-labelledby="toppings-heading">
           <h3 id="toppings-heading">Toppings:</h3>
-          <ul class="menu-list">
+          <ul class="card menu-list">
             <li><span>Classic boba pearls</span><span class="menu-price">+$0.75</span></li>
             <li><span>Brown sugar pearls</span><span class="menu-price">+$1.00</span></li>
             <li><span>Lychee jelly</span><span class="menu-price">+$0.75</span></li>
@@ -234,11 +254,11 @@
       <div class="options-row">
         <section aria-labelledby="sweetness-heading">
           <h3 id="sweetness-heading">Sweetness</h3>
-          <ul><li>0%</li><li>30%</li><li>50%</li><li>70%</li><li>100%</li></ul>
+          <ul class="card"><li>0%</li><li>30%</li><li>50%</li><li>70%</li><li>100%</li></ul>
         </section>
         <section aria-labelledby="ice-heading">
           <h3 id="ice-heading">Ice</h3>
-          <ul><li>Extra ice</li><li>Regular ice</li><li>Less ice</li></ul>
+          <ul class="card"><li>Extra ice</li><li>Regular ice</li><li>Less ice</li></ul>
         </section>
       </div>
     </section>
@@ -246,7 +266,7 @@
     <div class="visit-row page-section">
       <section aria-labelledby="hours-heading">
         <h2 id="hours-heading">Hours</h2>
-        <ul class="hours-list">
+        <ul class="card hours-list">
           <li><span>Mon-Wed:</span><span>11:00 AM - 8:00 PM</span></li>
           <li><span>Thu-Fri:</span><span>11:00 AM - 9:00 PM</span></li>
           <li><span>Sat:</span><span>12:00 PM - 9:00 PM</span></li>
@@ -255,7 +275,7 @@
       </section>
       <section aria-labelledby="location-heading">
         <h2 id="location-heading">Location</h2>
-        <ul class="location-list">
+        <ul class="card location-list">
           <li>418 Pearl Street</li>
           <li>Across from the campus bookstore</li>
           <li>Look for the green awning</li>
@@ -263,25 +283,28 @@
       </section>
     </div>
 
-    <aside class="deal-panel page-section" aria-labelledby="deals-heading">
+    <aside class="deal-section page-section" aria-labelledby="deals-heading">
       <h2 id="deals-heading">Deals</h2>
-      <p>Student discount on classic milk tea on weekday afternoons</p>
+      <p class="card deal-panel">Student discount on classic milk tea on weekday afternoons</p>
     </aside>
 
     <section class="contact page-section" aria-labelledby="contact-heading">
       <h2 id="contact-heading">Contact</h2>
       <div class="contact-links">
-        <p>Email: <a href="mailto:kai@pearlstreetboba.example">kai@pearlstreetboba.example</a></p>
-        <p>Phone: <a href="tel:+15550142288">(555) 014-2288</a></p>
+        <p class="card">Email: <a href="mailto:kai@pearlstreetboba.example">kai@pearlstreetboba.example</a></p>
+        <p class="card">Phone: <a href="tel:+15550142288">(555) 014-2288</a></p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p><strong>Pearl Street Boba</strong><br />418 Pearl Street</p>
-    <p><a href="mailto:kai@pearlstreetboba.example">kai@pearlstreetboba.example</a><br /><a href="tel:+15550142288">(555) 014-2288</a></p>
-    <p><a href="#hours-heading">View opening hours</a></p>
-    <p class="copyright"><small>&copy; 2026 Pearl Street Boba. All rights reserved.</small></p>
+    <p><strong>Pearl Street Boba</strong></p>
+    <div class="footer-grid">
+      <p class="card">418 Pearl Street</p>
+      <p class="card"><a href="mailto:kai@pearlstreetboba.example">kai@pearlstreetboba.example</a><br /><a href="tel:+15550142288">(555) 014-2288</a></p>
+      <p class="card"><a href="#hours-heading">View opening hours</a></p>
+      <p class="card copyright"><small>&copy; 2026 Pearl Street Boba. All rights reserved.</small></p>
+    </div>
   </footer>
 </body>
 </html>
